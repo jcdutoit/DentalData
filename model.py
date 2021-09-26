@@ -17,9 +17,9 @@ x_test = x_test[:,1:3]
 
 # Create model
 model = Sequential()
-model.add(Dense(32, input_dim=2, activation='relu'))
-model.add(Dense(64, activation='relu'))
-model.add(Dense(32, activation='relu'))
+model.add(Dense(8, input_dim=2, activation='relu'))
+model.add(Dense(16, activation='relu'))
+model.add(Dense(8, activation='relu'))
 model.add(Dense(1, activation='relu'))
 
 # Train model
