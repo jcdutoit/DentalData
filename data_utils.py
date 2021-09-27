@@ -8,6 +8,8 @@ RAW_DATA = "data/Interview_data.csv"
 GROUND_TRUTH = "data/ground_truth.csv"
 TRAINING_DATA = "data/training.csv"
 MISSING = "data/missing.csv"
+PREDICTIONS = "data/predictions.csv"
+
 
 def get_training_data():
     """ Get the cleaned and engineered training data
@@ -179,8 +181,14 @@ def get_day_pay_data(df):
 def plot_date_price(df):
     """ Plot graph of payments based on time
     """
-    plt.scatter(x =df['ElapsedDays'].to_list(), y = df['PayAmt'].astype(float).to_list())        
-    plt.xlim(0,10000)
+    plt.scatter(x =df['ElapsedDays'].to_list(), y = df['PayAmt'].astype(float).to_list())
+    # if(os.path.exists(PREDICTIONS)):
+    #     preds = pd.read_csv(PREDICTIONS)
+    #     print(preds)
+    #     plt.scatter(preds.iloc[0,:], preds.iloc[1,:])
+    plt.xlabel("Elapsed Time (Days)")
+    plt.ylabel("Amount Payed (Dollars)")
+    plt.xlim(0,8312)
     plt.ylim(0,10000)
     plt.show()
 
@@ -189,8 +197,13 @@ def plot_pat_payments(df, pat_num):
     """
     pat_data = df.loc[df['PatNum'] == pat_num]
     plt.scatter(x=pat_data['ElapsedDays'], y = pat_data['PayAmt'].astype(float))
+    if(os.path.exists(PREDICTIONS)):
+        preds = pd.read_csv(PREDICTIONS)
+        plt.scatter(preds.iloc[0,2], preds.iloc[1,2])
     plt.xlim(0,1000)
-    plt.ylim(0,500)
+    plt.ylim(0,1000)
+    plt.xlabel("Elapsed Time (Days)")
+    plt.ylabel("Amount Payed (Dollars)")
     plt.show()
 
 def get_freq_price_data(df):
@@ -209,3 +222,11 @@ def get_freq_price_data(df):
         freqs.append(freq)
         df = df[df['PatNum'] != df['PatNum'].iloc[0]]
     return freqs, prices
+
+
+if(__name__ == "__main__"):
+    df = pd.read_csv(GROUND_TRUTH)
+    plot_date_price(df)
+    plot_pat_payments(df, 6)
+    
+    
