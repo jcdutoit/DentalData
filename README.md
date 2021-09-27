@@ -17,3 +17,5 @@ Figure 2: Predictions of payments from the neural network (in orange) with all o
 
 Figure 3: A payment prediction for patient 6 (in orange) with all other payments by patient 6 (in blue)
 ![prediction](https://user-images.githubusercontent.com/62564888/134969485-ab9137a1-1cc9-4b7b-a76a-e8b89ece7404.png)
+
+Some other projects I played with were outlier prediction with a SVM and clustering user data based on payment amount and frequency.
