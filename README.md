@@ -12,8 +12,8 @@ Figure 1: All patient payments graphed over time.
 
 I found predicting missing cells in the data an interesting regression problem. Using the features I had engineered, I created a simple feed forward neural network that originally accepted seven features, including time data, to make predicitions. However, looking at the data, I determined that time data did not seem to have as great of an effect on patient payment amounts as the user's payment data. I reduced the input features to just the user's average payment amount and number of payments and got better predictions.
 
-Figure 2: Predictions of payments from the neural network with all other patient payment
+Figure 2: Predictions of payments from the neural network (in orange) with all other patient payments (in blue)
 ![all_pres](https://user-images.githubusercontent.com/62564888/134969383-ea10485a-8855-4e40-9e20-a208e8284a61.png)
 
-Figure 3: A payment prediction for patient 6
+Figure 3: A payment prediction for patient 6 (in orange) with all other payments by patient 6 (in blue)
 ![prediction](https://user-images.githubusercontent.com/62564888/134969485-ab9137a1-1cc9-4b7b-a76a-e8b89ece7404.png)
